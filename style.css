@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+  --radio: 2rem;
+  --borde: calc(var(--radio)/16);
+  --azul: #4eaddf;
+  --rojo: #f1613a;
+  --verde: #96c865;
+  --amarillo: #fdbe2a;
+  --blanco: #ffffff;
+  --negro: #000000;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#waiting-icon {
+    width: calc(var(--radio)*2);
+    height: calc(var(--radio)*2);
+    background: var(--negro);
+    border-radius: 50%;
+    position: relative;
+}
+
+.azul, .verde, .amarillo, .rojo {
+    position: absolute;
+    width: var(--radio);
+    height: var(--radio);
+    border-style: solid;
+    border-color: var(--negro);
+}
+
+.azul {
+  background: var(--azul);
+  border-radius: 100% 0 0 0;
+  border-width: var(--borde) 0 0 var(--borde);
+  transform-origin: bottom right;
+  animation: rotation 3s infinite linear;
+}
+
+.verde {
+  left: var(--radio);
+  background: var(--verde);
+  border-radius: 0 100% 0 0;
+  border-width: var(--borde) var(--borde) 0 0;
+  transform-origin: bottom left;
+  animation: rotation 1.5s infinite linear;
+}
+
+.amarillo {
+  left: var(--radio);
+  top: var(--radio);
+  background: var(--amarillo);
+  border-radius: 0 0 100% 0;
+  border-width: 0 var(--borde) var(--borde) 0;
+  transform-origin: top left;
+  animation: rotation 1s infinite linear;
+}
+
+.rojo {
+  top: var(--radio);
+  background: var(--rojo);
+  border-radius: 0 0 0 100%;
+  border-width: 0 0 var(--borde) var(--borde);
+  transform-origin: top right;
+  animation: rotation 0.75s infinite linear;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
